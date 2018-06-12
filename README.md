@@ -1,9 +1,9 @@
 
 # Bandeau sensibilisation opération Octobre Cybersécurité 
 
-A faire !
-#Description de l'opération à compléter
-#Objectif du bandeau
+Comme l’année précédente, le service du haut fonctionnaire de défense et de sécurité va organiser une campagne de sensibilisation au risque cybernétique en octobre 2018. L’objectif est de diffuser des messages de prévention simples à mettre en œuvre auprès de deux publics : les agents du ministère et les entreprises des secteurs sous tutelle ministérielle.
+
+Cette année, la communication s’articule autour de la mise à jour de ses logiciels, et en particulier du navigateur. Le SHFDS distribue la présente bibliothèque pour afficher sur votre site un bandeau indiquant aux utilisateurs si leur navigateur est à jour. Ainsi, ils constateront d'eux-même qu'ils utilisent avec un navigateur ancien, ne disposant donc pas des dernières fonctions de sécurité et présentant des failles de sécurité connues.
 
 
 ## configuration HTML:
