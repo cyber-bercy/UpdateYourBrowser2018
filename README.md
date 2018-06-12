@@ -1,5 +1,5 @@
 
-Bandeau sensibilisation opération Octobre Cybersécurité 
+# Bandeau sensibilisation opération Octobre Cybersécurité 
 
 A faire !
 #Description de l'opération à compléter
@@ -8,30 +8,31 @@ A faire !
 configuration HTML
 
 Configuration des options du bandeau                     
-1.      Options
+## 1.Options
 
 Différentes options sont configurables :
 
--          La période à laquelle le bandeau est actif (startDate -> endDate)
+- La période à laquelle le bandeau est actif (startDate -> endDate)
 
--          Les versions supportées minimum par navigateur
+- Les versions supportées minimum par navigateur
 
--          Les versions long time support uniques avec leur date de build (Firefox est concerné)
+- Les versions long time support uniques avec leur date de build (Firefox est concerné)
 
--          L’activation/désactivation pour windows XP d'un message spécifique (xpMode)
+- L’activation/désactivation pour windows XP d'un message spécifique (xpMode)
 
--          L’activation/désactivation pour les plateformes mobiles (androidMode)
+- L’activation/désactivation pour les plateformes mobiles (androidMode)
 
--          Le formatting : La couleur du texte et du lien, le corps du texte et du liens, le lien en lui même  
+- Le formatting : La couleur du texte et du lien, le corps du texte et du liens, le lien en lui même  
 
-Elles se paramètrent dans la variable « _umb » et sont toutes falcultatives.
+Elles se paramètrent dans la variable « _umb » et sont toutes optionnelles.
 
  
-2.      Version requise  
+## 2.Version requise  
 
 Elle est définie par navigateur dans une liste nommée « require » et une liste « current »:
 
 La version par défaut :
+```javascript
 require: {
      chrome :  "66" ,
      firefox : "60",
@@ -48,25 +49,26 @@ current: {
      safari : "11",
      edge : "14"
 },
-
+``` 
 Suite au version LTS, certains canaux de navigateurs à jour en termes de sécurité reste à une version antérieure. Il est possible de préciser une version acceptable de firefox et de spécifier une builddate : 
-
+```javascript
 esr: {
     firefox : "52"},
 build: {
-    firefox : "20171226003912"} // version ultérieur au 12 décembre 2017
+    firefox : "20171226003912"}; // version ultérieur au 12 décembre 2017
+```	
 	
-	
-3.      Définition du message :
+## 3.Définition du message :
 
 Il est possible de définir une charte de message spécifique à votre site web,
-
+```javascript
 message: {
      color : "#FDF2AB", // couleur du fond
      textColor : "black" // couleur du texte
      linkColor : "black" // couleur du texte
   }
-4.      Chargement du bandeau :
+```
+## 4.Chargement du bandeau :
 
  Il est réalisé à travers le snippet de code suivant :
 
@@ -75,7 +77,7 @@ message: {
 avec "signcurrentbuild"la signature actuel du fichier.
 Un script python est fourni pour signer ou fournir automatiquement la signature CSP.
 
-5.     Page de test :
+## 5.Page de test :
 
 Une page par défaut est disponible pour voir comment fonctionne le script :
 https://def.duckdns.org/test2/test2/indexdefaut.html
@@ -84,7 +86,7 @@ Une page avec ces paramètres est disponible :
 https://def.duckdns.org/test2/test2/index.html
 
 configuration :
-
+```javascript
     var _umb = {
     require: {
         chrome : "66",
@@ -111,5 +113,5 @@ configuration :
       linkURL: "outdatedbrowser.com"
       }
     }
-
+```
 
