@@ -16,7 +16,7 @@ def uptade_umb(filechecksum,f1,f):
     fileinput.close()
     print "encoded : sha256-",filechecksum
     ashtype="sha256-"
-    d = fileinput.input("index.html", inplace=1)
+    d = fileinput.input(".\index.html", inplace=1)
     compt=0
     for line in d:
         line=line.decode('utf-8')
@@ -41,8 +41,9 @@ def sha256_checksum(filename, block_size=65536):
     return sha256.digest()
 
 def main():
-        if len(sys.argv)>1 :
-            f,f1=sys.argv[1:3]
+        print sys.argv
+        if len(sys.argv)>4 :
+            f,f1=sys.argv[2:4]
         else:
             f,f1="umb2.js","index.html"
         checksum = sha256_checksum(f)
