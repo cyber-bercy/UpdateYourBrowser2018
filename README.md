@@ -5,9 +5,9 @@ A faire !
 #Description de l'opération à compléter
 #Objectif du bandeau
 
-configuration HTML
 
-Configuration des options du bandeau                     
+## configuration HTML:
+## Configuration des options du bandeau                     
 ## 1.Options
 
 Différentes options sont configurables :
@@ -50,7 +50,7 @@ current: {
      edge : "14"
 },
 ``` 
-Suite au version LTS, certains canaux de navigateurs à jour en termes de sécurité reste à une version antérieure. Il est possible de préciser une version acceptable de firefox et de spécifier une builddate : 
+Suite aux versions LTS, certains canaux de navigateurs à jour en termes de sécurité reste à une version antérieure. Il est possible de préciser une version acceptable de firefox et de spécifier une builddate : 
 ```javascript
 esr: {
     firefox : "52"},
@@ -71,19 +71,16 @@ message: {
 ## 4.Chargement du bandeau :
 
  Il est réalisé à travers le snippet de code suivant :
-
+```javascript
 (function(u,v) { var s = document.createElement('script'); s.async = true; s.src = u;s.integrity = v; var b = document.getElementsByTagName('script'); b.parentNode.insertBefore(s, b); }) ('umb2.js',"sha25-signcurrentbuild");
+```
 
-avec "signcurrentbuild"la signature actuel du fichier.
+avec **signcurrentbuild** la signature actuel du fichier.
 Un script python est fourni pour signer ou fournir automatiquement la signature CSP.
 
 ## 5.Page de test :
 
-Une page par défaut est disponible pour voir comment fonctionne le script :
-https://def.duckdns.org/test2/test2/indexdefaut.html
-
-Une page avec ces paramètres est disponible :
-https://def.duckdns.org/test2/test2/index.html
+Une page par défaut est disponible pour voir comment fonctionne le script.
 
 configuration :
 ```javascript
