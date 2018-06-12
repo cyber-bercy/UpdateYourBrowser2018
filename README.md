@@ -2,8 +2,11 @@
 # Bandeau sensibilisation opération Octobre Cybersécurité 
 
 A faire !
-#Description de l'opération à compléter
-#Objectif du bandeau
+
+Comme l’année précédente, le service du haut fonctionnaire de défense et de sécurité va organiser une campagne de sensibilisation au risque cybernétique en octobre 2018. Cette campagne, baptisée CyberOctobre18, s’inscrit dans un cadre plus large impulsé par les USA, puis reprise par l’agence européenne de la sécurité des réseaux et des systèmes d’information (ENISA) et en France par l’agence nationale de la sécurité des systèmes d’information (ANSSI). L’objectif est de diffuser des messages de prévention simples à mettre en œuvre auprès de deux publics : les agents du ministère et les entreprises des secteurs sous tutelle ministérielle.
+
+Cette année, le message principal est de mettre à jour ses logiciels, et en particulier son navigateur. Le SHFDS distribue le script pour afficher sur votre site un bandeau indiquant aux utilisateurs si leur navigateur est à jour. 
+Ainsi, ils seront informé qu'ils utilisent un navigateur ancien, ne disposant donc pas des dernières fonctions de sécurité et présentant des failles de sécurité connues.
 
 
 ## configuration HTML:
@@ -22,7 +25,7 @@ Différentes options sont configurables :
 
 - L’activation/désactivation pour les plateformes mobiles (androidMode)
 
-- Le formatting : La couleur du texte et du lien, le corps du texte et du liens, le lien en lui même  
+- Le format : La couleur du texte et du lien, le corps du texte et du liens, le lien en lui même  
 
 Elles se paramètrent dans la variable « _umb » et sont toutes optionnelles.
 
