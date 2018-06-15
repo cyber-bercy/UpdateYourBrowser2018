@@ -1,3 +1,4 @@
+C:\Anaconda2\python.exe .\jsmin.py .\umb2.js
 C:\Anaconda2\python.exe .\integrity-umb2.py
 python.exe .\integrity-umb2.py
 xcopy.exe /y ".\umb2.js" "..\test\wikipedia-mef\umb\"

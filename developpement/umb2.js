@@ -83,10 +83,11 @@ try {
                                 update: "",
                                 linkUrl: "",
                                 warning: "",
-                                color: "#FDF2AB",
+                                backgroundColor: "#FDF2AB",
+                                backgroundUpdateColor: "",
                                 linkColor: "#ED1C24",
                                 textColor: "black",
-                                updateColor: "#00A651"
+                                textUpdateColor: "#00A651"
                             },
                             display: true,
                             nonCritical: false,
@@ -369,11 +370,12 @@ try {
         }();
         "undefined" === typeof UMB && (UMB = function () {});
         UMB.Widget = function () {
-            conf = UMB.getConfig()
-            var color = conf.message.color,
+            var conf = UMB.getConfig()
+            var backgroundColor = conf.message.backgroundColor,
+                backgroundUpdateColor = conf.message.backgroundUpdateColor || backgroundColor,
                 textColor = conf.message.textColor,
                 linkColor = conf.message.linkColor,
-                updateColor = conf.message.updateColor,
+                textUpdateColor = conf.message.textUpdateColor,
                 deviceType = UMB.Detect.deviceType;
             var c = !1,
                 a = !1,
@@ -390,13 +392,14 @@ try {
                         position: "absolute",
                         height: "19px",
                         fontSize: "14px",
+                        fontWeight: "bold",
                         lineHeight: "1em",
                         fontFamily: "Arial, sans-serif",
                         color: textColor,
                         padding: "10px 0",
                         top: "-40px",
                         left: "0px",
-                        backgroundColor: color,
+                        backgroundColor: backgroundColor,
                         backgroundImage: "url(./umb/warning.png)",
                         backgroundPosition: "10px center",
                         backgroundRepeat: "no-repeat",
@@ -411,11 +414,11 @@ try {
                         "box-sizing": "content-box",
                         overflow: "hidden"
                     }, d);
-                    if ( UMB.Detect.OS == "Android" ) {g({height: "38px"},d)} 
+                    if ( UMB.Detect.OS == "Android" ) {g({height: "1.5em"},d)} 
                     d.setAttribute("id", "BrowserBar");
                     var b = document.createElement("p");
                     g({
-                        margin: "0px 0px 0px 40px",
+                        margin: "0px 0px 0px 4em",
                         padding: "0px",
                         lineHeight: "1.5em"
                     }, b);
@@ -431,9 +434,9 @@ try {
                     };
                     g({
                         display: "block",
-                        width: "20px",
-                        height: "20px",
-                        margin: "0px 0px 0px 40px",
+                        width: "2em",
+                        height: "2em",
+                        margin: "0px 0px 0px 4em",
                         padding: "0px",
                         lineHeight: "1.5em",
                         position: "absolute",
@@ -465,8 +468,11 @@ try {
                             l = "";
                         switch (d) {
                             case "latest":
-                                g({ backgroundImage : ""},e);
-                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", k.style.color = updateColor, k.appendChild(document.createTextNode("En savoir plus"));
+                                g({ backgroundImage : "",
+                                    backgroundColor : backgroundUpdateColor,
+                                    color : textUpdateColor }
+                                    ,e);
+                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", k.style.color = linkColor, k.appendChild(document.createTextNode("En savoir plus"));
                                 break;
                             case "update":
                                 g({ backgroundImage : ""},e);
