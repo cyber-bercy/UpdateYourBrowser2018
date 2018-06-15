@@ -274,7 +274,7 @@ import sys, os, glob
 
 f=sys.argv[1]
 with open(f, 'r') as js:
-	with open(f[:-2]+".min.js", 'w') as jsout:
+	with open(f[:-2]+"min.js", 'w') as jsout:
 		minifier = JavascriptMinify(js, jsout)
 		minifier.minify()
 		jsout.write('\n')

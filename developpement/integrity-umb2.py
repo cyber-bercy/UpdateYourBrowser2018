@@ -14,7 +14,7 @@ import base64
 def uptade_umb(filechecksum,f1,f):
     filechecksum=base64.b64encode(filechecksum)
     fileinput.close()
-    print "encoded : sha256-",filechecksum
+    print "encoded : sha256-"+filechecksum
     ashtype="sha256-"
     d = fileinput.input(".\index.html", inplace=1)
     compt=0
@@ -28,7 +28,7 @@ def uptade_umb(filechecksum,f1,f):
                  
             else :
                 #f1','$sha ->>len f1 + 3
-                line=line[:index+len(f1)]+ashtype+filechecksum+line[index+len(f1):]        
+                line=line[:index+len(f)+3]+ashtype+filechecksum+line[index+len(f)+3:]        
         sys.stdout.write(line.encode('utf-8'))
     fileinput.close()
         
@@ -42,11 +42,13 @@ def sha256_checksum(filename, block_size=65536):
 
 def main():
         print sys.argv
-        if len(sys.argv)>4 :
-            f,f1=sys.argv[2:4]
+        if len(sys.argv)> 3 :
+			print "argument received"
+			f, f1, f2 = sys.argv[1:4]
         else:
-            f,f1="umb2.js","index.html"
-        checksum = sha256_checksum(f)
+            f, f1 = "umb2.js", "index.html"
+            f2 = f
+        checksum = sha256_checksum(f2)
         print(f + '\t' + checksum)
         uptade_umb(checksum,f1,f)
 
