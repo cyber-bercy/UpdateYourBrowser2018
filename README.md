@@ -80,7 +80,10 @@ Un script python est fourni pour signer ou fournir automatiquement la signature 
 
 ## 5.Page de test :
 
-Une page par défaut est disponible pour voir comment fonctionne le script.
+- Une page par défaut est disponible pour voir comment fonctionne le script :
+https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/indexdefaut.html
+- Une page avec la configuration ci dessous est disponible pour voir comment fonctionne le script :
+https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/index.html
 
 configuration :
 ```javascript
