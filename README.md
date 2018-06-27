@@ -8,7 +8,7 @@ Cette année, la communication s’articule autour de la mise à jour de ses log
 
 ## configuration HTML:
 ## Configuration des options du bandeau                     
-## 1.Options
+## 1. Options
 
 Différentes options sont configurables :
 
@@ -27,7 +27,7 @@ Différentes options sont configurables :
 Elles se paramètrent dans la variable « _umb » et sont toutes optionnelles.
 
  
-## 2.Version requise  
+## 2. Version requise  
 
 Elle est définie par navigateur dans une liste nommée « require » et une liste « current »:
 
@@ -58,7 +58,7 @@ build: {
     firefox : "20171226003912"}; // version ultérieur au 12 décembre 2017
 ```	
 	
-## 3.Définition du message :
+## 3. Définition du message :
 
 Il est possible de définir une charte de message spécifique à votre site web,
 ```javascript
@@ -68,7 +68,7 @@ message: {
      linkColor : "black" // couleur du texte
   }
 ```
-## 4.Chargement du bandeau :
+## 4. Chargement du bandeau :
 
  Il est réalisé à travers le snippet de code suivant :
 ```javascript
@@ -78,7 +78,7 @@ message: {
 avec **signcurrentbuild** la signature actuel du fichier.
 Un script python est fourni pour signer ou fournir automatiquement la signature CSP.
 
-## 5.Page de test :
+## 5. Pages de test :
 
 - Une page par défaut est disponible pour voir comment fonctionne le script :
 https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/indexdefaut.html

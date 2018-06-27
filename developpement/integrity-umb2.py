@@ -16,7 +16,7 @@ def uptade_umb(filechecksum,f1,f):
     fileinput.close()
     print "encoded : sha256-"+filechecksum
     ashtype="sha256-"
-    d = fileinput.input(".\index.html", inplace=1)
+    d = fileinput.input(".\\"+f1, inplace=1)
     compt=0
     for line in d:
         line=line.decode('utf-8')
