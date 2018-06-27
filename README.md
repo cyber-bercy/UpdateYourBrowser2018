@@ -84,7 +84,8 @@ Un script python est fourni pour signer ou fournir automatiquement la signature 
 https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/indexdefaut.html
 - Une page avec la configuration ci dessous est disponible pour voir comment fonctionne le script :
 https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/index.html
-
+- Une page mobile avec la configuration ci dessous est disponible pour voir comment fonctionne le script sur un appareil mobile:
+https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef-mobile/index-mobile.html
 configuration :
 ```javascript
     var _umb = {
