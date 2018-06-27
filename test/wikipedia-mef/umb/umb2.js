@@ -414,7 +414,7 @@ try {
                         "box-sizing": "content-box",
                         overflow: "hidden"
                     }, d);
-                    if ( UMB.Detect.OS == "Android" ) {g({height: "1.5em"},d)} 
+                    if ( UMB.Detect.OS == "Android" ) {g({height: "2.8em"},d)} 
                     d.setAttribute("id", "BrowserBar");
                     var b = document.createElement("p");
                     g({
