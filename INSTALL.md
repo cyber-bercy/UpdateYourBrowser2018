@@ -2,7 +2,7 @@
 ## 1 essayer le dispositif sur une page de test :
 ###   a - editer le fichier html :
 Identifier une page de test en dehors du serveur de production.
-Trouver la balise <body> dans le fichier html de la page en question et copier le code javascript suivant après la balise :
+Trouver la balise **body** dans le fichier html de la page en question et copier le code javascript suivant après la balise :
   ```javascript
 <script>
 		var _umb = {
@@ -53,5 +53,5 @@ Si le test est fonctionnel, passer à l'étape 4.
 Réaliser les 3 premières opérations sur la page ou vous souhaitez que le bandeau s'affiche en changeau les dates
 
 	**startdate: "2018-10-08"**,
-		**enddate: "2019-10-15"**,
+	**enddate: "2019-10-15"**,
 
