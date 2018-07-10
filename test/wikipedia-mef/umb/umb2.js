@@ -390,8 +390,8 @@ try {
                     g({
                         display: "none",
                         position: "absolute",
-                        height: "19px",
-                        fontSize: "14px",
+                        height: "1em",
+                        fontSize: "1em",
                         fontWeight: "bold",
                         lineHeight: "1em",
                         fontFamily: "Arial, sans-serif",
@@ -414,14 +414,20 @@ try {
                         "box-sizing": "content-box",
                         overflow: "hidden"
                     }, d);
-                    if ( UMB.Detect.OS == "Android" ) {g({height: "2.8em"},d)} 
+                    if ( UMB.Detect.OS == "Android" ) {
+                        g({height: "",
+                           textAlign: "center"},
+                           d)} 
                     d.setAttribute("id", "BrowserBar");
                     var b = document.createElement("p");
                     g({
-                        margin: "0px 0px 0px 4em",
+                        margin: "0px 2em 0px 4em",
                         padding: "0px",
                         lineHeight: "1.5em"
                     }, b);
+                    if ( UMB.Detect.OS == "Android" ) {
+                        g({margin: "0px 1.8em 0px 1.8em"},
+                           b)} 
                     var c = document.createElement("a");
                     c.href = "javascript:void(0);";
                     c.title = "faire disparaître pour une heure";
@@ -434,16 +440,16 @@ try {
                     };
                     g({
                         display: "block",
-                        width: "2em",
-                        height: "2em",
+                        width: "1.8em",
+                        height: "1.8em",
                         margin: "0px 0px 0px 4em",
                         padding: "0px",
-                        lineHeight: "1.5em",
+                        lineHeight: "1.8em",
                         position: "absolute",
-                        top: "10px",
+                        top: "5px",
                         right: "10px",
                         backgroundImage: "url(./umb/close.png)",
-                        backgroundPosition: "0 0",
+                        backgroundPosition: "0 center",
                         backgroundRepeat: "no-repeat"
                     }, c);
                     d.appendChild(b);
