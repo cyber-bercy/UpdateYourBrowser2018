@@ -30,7 +30,7 @@ umb/umb2.js',"sha256-ERhvXU4yG6P1ddMUpskWfoNlUdJ8yhXQxNS/Qi5+N0E=");
 </script> 
 ```      
 
-### b - Télécharger [le ZIP d'umb] (release/umb.ziple) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
+### b - Télécharger [le ZIP d'umb] (release/umb.zip) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
 
 Le répertoire /umb et les fichiers qu'il contient doivent être copiés dans le même répertoire que la page à servir.
 
