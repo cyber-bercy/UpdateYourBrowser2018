@@ -26,7 +26,8 @@
 (function(u,v) { var s = document.createElement('script'); s.async = true; s.src = u;s.integrity = v;
 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
 umb/umb2.js',"sha256-ERhvXU4yG6P1ddMUpskWfoNlUdJ8yhXQxNS/Qi5+N0E=");
-</script> ```      
+</script> 
+```      
 
 ### b - Telecharger [release/umb.zip] (le ZIP d'umb) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
 
