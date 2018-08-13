@@ -93,7 +93,9 @@ try {
                             nonCritical: false,
                             mobile: true,
                             androidMode : true,
-                            xpMode : true
+                            xpMode : true,
+                            offset : 40
+
                         };
                         h = c(h, f);
                     }
@@ -389,7 +391,7 @@ try {
                     d = document.createElement("div");
                     g({
                         display: "none",
-                        position: "absolute",
+                        position: "fixed",
                         height: "1em",
                         fontSize: "1em",
                         fontWeight: "bold",
@@ -397,7 +399,7 @@ try {
                         fontFamily: "Arial, sans-serif",
                         color: textColor,
                         padding: "10px 0",
-                        top: "-40px",
+                        top: "0px",
                         left: "0px",
                         backgroundColor: backgroundColor,
                         backgroundImage: "url(./umb/warning.png)",
@@ -445,7 +447,7 @@ try {
                         margin: "0px 0px 0px 4em",
                         padding: "0px",
                         lineHeight: "1.8em",
-                        position: "absolute",
+                        position: "fixed",
                         top: "5px",
                         right: "10px",
                         backgroundImage: "url(./umb/close.png)",
@@ -533,9 +535,9 @@ try {
                     var d = document.getElementsByTagName("body")[0],
                         b = document.getElementById("BrowserBar");
                     if ("none" === f(b, "display") && (d.className += " umb-active", b.style.opacity = "0", b.style.filter = "alpha(opacity=0)", b.style.display = "block", l(b, "opacity", .95, 600), "ie" == UMB.getCurrentBrowser() && "BackCompat" ==
-                            document.compatMode ? (b.style.top = "0px", b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px") : (d.style.position = "relative", d.style.overflow = "visible", l(d, "top", "+40", 300), a || (UMB.attach(window, "resize", function () {
+                            document.compatMode ? (b.style.top = "0px", b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px") : (d.style.position = "relative", d.style.overflow = "visible", l(d, "top", "+"+conf.offset, 300), a || (UMB.attach(window, "resize", function () {
                                 b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px"
-                            }), b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px", b.style.top = "-" + (parseFloat(f(d, "marginTop")) + 40) + "px", b.style.left = "-" + parseFloat(f(d,
+                            }), b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px", b.style.top = "Opx", b.style.left = "-" + parseFloat(f(d,
                                 "marginLeft")) + "px")), a))
                         if ("ie" == UMB.getCurrentBrowser() && "BackCompat" == document.compatMode) UMB.attach(window, "scroll", function () {
                             b.style.top = (document.documentElement.scrollTop || document.body.scrollTop) + (!b.offsetHeight && 0) + "px"
@@ -546,7 +548,7 @@ try {
                                 "px"
                         });
                         b.style.width = (document.documentElement.clientWidth || document.body.clientWidth) + "px";
-                        var c = parseFloat(f(d, "marginTop")) + 40;
+                        var c = 0;
                         b.style.top = "-" + c + "px";
                         b.style.left = "-" + parseFloat(f(d, "marginLeft")) + "px";
                         UMB.attach(window, "scroll", function () {
@@ -560,7 +562,7 @@ try {
                         b = document.getElementById("BrowserBar");
                     "block" === f(b, "display") && (a.className = a.className.replace(" umb-active", ""), l(b, "opacity", 0, 600, function () {
                         b.style.display = "none"
-                    }), "ie" == UMB.getCurrentBrowser() && "BackCompat" == document.compatMode || l(a, "top", "-40", 300))
+                    }), "ie" == UMB.getCurrentBrowser() && "BackCompat" == document.compatMode || l(a, "top", "-"+conf.offset, 300))
                 };
             return {
                 init: function () {
