@@ -1,34 +1,36 @@
-# installer le bandeau sur votre site : 
+# Installer le bandeau sur votre site : 
 
-## 1 essayer le dispositif sur une page de test : 
+## 1 - Essayer le dispositif sur une page de test : 
 
-###   a - éditer le fichier HTML :
+###   a - Editer le fichier HTML :
 
 -	Identifier une page de test en dehors du serveur de production.
 -	Trouver la balise **body** dans le fichier HTML de la page en question et copier le code JavaScript suivant après la balise :   
 ```javaScript 
 <script>   var _umb = {   require: {    chrome : "66",    firefox : "60",
     opera : "52",    ie : "11",    safari : "11",    edge : "14"},
-						current: {    chrome : "66",    firefox : "60",    opera : "52",    ie : "11",    safari : "11",    edge : "14"},
-						display : true,   
-						nonCritical: true,   
-						startdate: "2017-12",   
-						enddate: "2019-12",   
-						message:{     
-								backgroundColor : "red",
-								backgroundUpdateColor : "#00ff80",
-								textUpdateColor : "white",
-								textColor: "white",
-								linkColor: "grey",
-								linkURL: "economie.gouv.fr"
-								}  
-						};
+			current: {    chrome : "66",    firefox : "60",
+    opera : "52",    ie : "11",    safari : "11",    edge : "14"},
+			display : true,   
+			nonCritical: true,   
+			startdate: "2017-12",   
+			enddate: "2019-12",   
+			message:{     
+			backgroundColor : "red",
+			backgroundUpdateColor : "#00ff80",
+			textUpdateColor : "white",
+			textColor: "white",
+			linkColor: "grey",
+			linkURL: "economie.gouv.fr"
+			}  
+		};
 (function(u,v) { var s = document.createElement('script'); s.async = true; s.src = u;s.integrity = v;
 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
 umb/umb2.js',"sha256-ERhvXU4yG6P1ddMUpskWfoNlUdJ8yhXQxNS/Qi5+N0E=");
-</script> ```      
+</script> 
+```      
 
-### b - Telecharger [release/umb.zip] (le ZIP d'umb) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
+### b - Télécharger [le fichier zip d'umb](release/umb.zip) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
 
 Le répertoire /umb et les fichiers qu'il contient doivent être copiés dans le même répertoire que la page à servir.
 
