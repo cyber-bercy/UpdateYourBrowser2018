@@ -34,20 +34,20 @@ Elle est définie par navigateur dans une liste nommée « require » et une lis
 La version par défaut :
 ```javascript
 require: {
-     chrome :  "68" ,
-     firefox : "61",
+     chrome :  "66" ,
+     firefox : "60",
      ie : "11",
-     opera : "53",
+     opera : "",
      safari : "11",
-     edge : "17"
+     edge : "14"
 },
 current: {
-     chrome :  "68" ,
-     firefox : "61",
+     chrome :  "66" ,
+     firefox : "60",
      ie : "11",
-     opera : "53",
+     opera : "",
      safari : "11",
-     edge : "17"
+     edge : "14"
 },
 ``` 
 Suite aux versions LTS, certains canaux de navigateurs à jour en termes de sécurité reste à une version antérieure. Il est possible de préciser une version acceptable de firefox et de spécifier une builddate : 
@@ -55,7 +55,7 @@ Suite aux versions LTS, certains canaux de navigateurs à jour en termes de séc
 esr: {
     firefox : "52"},
 build: {
-    firefox : "20180621121600"}; // version ultérieur au 21 juin 2018
+    firefox : "20171226003912"}; // version ultérieur au 12 décembre 2017
 ```	
 	
 ## 3. Définition du message :

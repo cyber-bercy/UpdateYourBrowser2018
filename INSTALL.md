@@ -1,4 +1,3 @@
-Mise à jour en date du 21/08/2018 avec les versions des browsers
 # Installer le bandeau sur votre site : 
 
 ## 1 - Essayer le dispositif sur une page de test : 
@@ -8,12 +7,10 @@ Mise à jour en date du 21/08/2018 avec les versions des browsers
 -	Identifier une page de test en dehors du serveur de production.
 -	Trouver la balise **body** dans le fichier HTML de la page en question et copier le code JavaScript suivant après la balise :   
 ```javaScript 
-<script>   var _umb = {   require: {    chrome : "68",    firefox : "61",
-    opera : "53",    ie : "11",    safari : "11",    edge : "17"},
-			current: {    chrome : "68",    firefox : "61",
-    opera : "53",    ie : "11",    safari : "11",    edge : "17"},
-			esr: { firefox : "52"},
-			build: { firefox : "20180621121600"};
+<script>   var _umb = {   require: {    chrome : "66",    firefox : "60",
+    opera : "52",    ie : "11",    safari : "11",    edge : "14"},
+			current: {    chrome : "66",    firefox : "60",
+    opera : "52",    ie : "11",    safari : "11",    edge : "14"},
 			display : true,   
 			nonCritical: true,   
 			startdate: "2017-12",   
@@ -29,7 +26,7 @@ Mise à jour en date du 21/08/2018 avec les versions des browsers
 		};
 (function(u,v) { var s = document.createElement('script'); s.async = true; s.src = u;s.integrity = v;
 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
-umb/umb2.js',"sha256-vpOTbt652r7UqB21i2OyT3ss7kwQQxPfj3dnFKTzvkE=");
+umb/umb2.js',"sha256-ERhvXU4yG6P1ddMUpskWfoNlUdJ8yhXQxNS/Qi5+N0E=");
 </script> 
 ```      
 
