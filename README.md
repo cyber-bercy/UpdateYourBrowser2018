@@ -88,31 +88,24 @@ https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef/index.ht
 https://cyberoctobre2018.github.io/UpdateYourBrowser/test/wikipedia-mef-mobile/index-mobile.html
 configuration :
 ```javascript
-    var _umb = {
-    require: {
-        chrome : "66",
-        firefox : "59",
-        opera : "52",
-        ie : "11",
-        safari : "11",
-        edge : "14"},
-    current: {
-        chrome : "66",
-        firefox : "59",
-        opera : "52",
-        ie : "11",
-        safari : "11",
-        edge : "14"},
-    display : true,
-    nonCritical: true,
-    startDate: "2017-12",
-    endDate: "2019-12",
-    message:{
-      color : "#67C8FF",
-      textColor: "white",
-      linkColor: "grey",
-      linkURL: "outdatedbrowser.com"
-      }
-    }
+	var _umb = {   require: {    chrome : "68",    firefox : "61",
+		opera : "53",    ie : "11",    safari : "11",    edge : "17"},
+				current: {    chrome : "68",    firefox : "61",
+		opera : "53",    ie : "11",    safari : "11",    edge : "17"},
+				esr: { firefox : "52"},
+				build: { firefox : "20180621121600"},
+				display : true,   
+				nonCritical: true,   
+				startdate: "2017-12",   
+				enddate: "2019-12",   
+				message:{     
+				backgroundColor : "red",
+				backgroundUpdateColor : "#00ff80",
+				textUpdateColor : "white",
+				textColor: "white",
+				linkColor: "grey",
+				linkURL: "economie.gouv.fr"
+				}  
+			};
 ```
 
