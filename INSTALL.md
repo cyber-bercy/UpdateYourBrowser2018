@@ -49,4 +49,4 @@ Si le test est fonctionnel, passer à l'étape 2.
 Réaliser les 3 premières opérations sur la page définitive ou vous souhaitez que le bandeau s'affiche.
 -	Configurer les dates : modifier les variables dans _umb de l'html :
 	**startdate:** "2018-10-08",
-	**enddate**: "2019-10-15",
+	**enddate**: "2018-10-15",
