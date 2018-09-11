@@ -395,13 +395,13 @@ try {
                     g({
                         display: "none",
                         position: "fixed",
-                        height: "1em",
+                        //height: "1em",
                         fontSize: "1em",
                         fontWeight: "bold",
-                        lineHeight: "1em",
+                        LineHeight: "1em",
                         fontFamily: "Arial, sans-serif",
                         color: textColor,
-                        padding: "10px 0",
+                        padding: "5px 0",
                         top: "0px",
                         left: "0px",
                         backgroundColor: backgroundColor,
@@ -469,9 +469,9 @@ try {
                         var e = document.getElementById("BrowserBar"),
                             k = document.createElement("a");
                         k.href = b.update_url;
-                        fonc = document.getElementById("BrowserBar").onclick;
-                        k.onclick = function (fonc) {
-                            fonc.stopPropagation()
+                        var foncBrowserBarOnclick = document.getElementById("BrowserBar").onclick;
+                        k.onclick = function (foncBrowserBarOnclick) {
+                            foncBrowserBarOnclick.stopPropagation()
                         };
                         k.style.color = "#2183d0";
                         k.style.fontWeight = "bold";
@@ -501,7 +501,7 @@ try {
                                 a = !0;
                                 break;
                             case "updateOs":
-                                k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support"
+                                k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support",
                                 f = "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
                                 k.style.color = linkColor, 
                                 k.appendChild(document.createTextNode("Plus d'informations"));
@@ -519,11 +519,17 @@ try {
                         }
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(f));
                         e.getElementsByTagName("p")[0].appendChild(k);
-                        var k2= k.cloneNode(true);
-                        k2.href = "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi";
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(l));
                         e.getElementsByTagName("p")[0].appendChild(document.createElement("br"));
-                        e.getElementsByTagName("p")[0].appendChild(document.createTextNode(k));
+                        var k2 = document.createElement("a");
+                        k2.style.color = linkColor,
+                        k2.target = "_blank";
+                        k2.href = "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi";
+                        k2.appendChild(document.createTextNode("Ce message s'affiche dans le cadre de l'opération du Mois européen de la cybersécurité dont notre site est partenaire"));
+                        k2.onclick = function (foncBrowserBarOnclick) {
+                            foncBrowserBarOnclick.stopPropagation()
+                        };
+                        e.getElementsByTagName("p")[0].appendChild(k2);
                         document.getElementById("BrowserBar").onclick = function () {
                             window.open(k2.href)
                         }
