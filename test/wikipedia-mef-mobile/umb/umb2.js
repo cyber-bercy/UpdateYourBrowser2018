@@ -87,7 +87,10 @@ try {
                                 backgroundUpdateColor: "",
                                 linkColor: "#ED1C24",
                                 textColor: "black",
-                                textUpdateColor: "#00A651"
+                                textUpdateColor: "#00A651",
+                                textCaseUpdate :{
+
+                                }
                             },
                             display: true,
                             nonCritical: false,
@@ -350,8 +353,8 @@ try {
                         if ((a2 == "WinXP") && (UMB.getConfig().xpMode===true)) {
                             return UMB.Detect.version >= c ? "latest" : "updateOs"
                         };
-                        //check for ESR version (elles ont une builddate) :
-                        if ((UMB.Detect.version == d) && (navigator.buildID)) {
+                        //check for ESR version (elles ont une builddate, risque de casse si firefox decide de supprimer la builddate) :
+                        if ((UMB.Detect.version >= d) && (navigator.buildID)) {
                             buildate = parseFloat(navigator.buildID);
                             buildlimite = parseFloat(UMB.getConfig().build[UMB.Detect.browser]);
                             //(on determine si la version ESR est à jour avec la date de référence)
@@ -466,45 +469,63 @@ try {
                         var e = document.getElementById("BrowserBar"),
                             k = document.createElement("a");
                         k.href = b.update_url;
-                        k.onclick = function () {
-                            return !1
+                        fonc = document.getElementById("BrowserBar").onclick;
+                        k.onclick = function (fonc) {
+                            fonc.stopPropagation()
                         };
                         k.style.color = "#2183d0";
                         k.style.fontWeight = "bold";
                         k.target = "_blank";
                         var f = "",
-                            l = "";
+                            l = ".";
                         switch (d) {
                             case "latest":
                                 g({ backgroundImage : "",
                                     backgroundColor : backgroundUpdateColor,
                                     color : textUpdateColor }
                                     ,e);
-                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", k.style.color = linkColor, k.appendChild(document.createTextNode("En savoir plus"));
+                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", 
+                                k.style.color = linkColor, 
+                                k.appendChild(document.createTextNode("En savoir plus"));
                                 break;
                             case "update":
                                 g({ backgroundImage : ""},e);
-                                f = "Une mise à jour de (" + b.name + " " + b.current + ") est disponible. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")), l = ".";
+                                f = "Une mise à jour de (" + b.name + " " + b.current + ") est disponible. ", 
+                                k.style.color = linkColor, 
+                                k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur"));
                                 break;
                             case "warning":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")), l = ".", a = !0;
+                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. ",
+                                k.style.color = linkColor,
+                                k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")),
+                                a = !0;
                                 break;
                             case "updateOs":
                                 k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support"
-                                f = "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Plus d'informations"));
+                                f = "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
+                                k.style.color = linkColor, 
+                                k.appendChild(document.createTextNode("Plus d'informations"));
                                 break;
                             case "androidDeprecated":
-                                f = "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ", k.style.color = linkColor, k.appendChild(document.createTextNode("En savoir plus")), l = ".";
+                                f = "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ", 
+                                k.style.color = linkColor, 
+                                k.appendChild(document.createTextNode("En savoir plus"));
                                 break;
                             case "warning2":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. Veuillez ", k.style.color = linkColor, k.appendChild(document.createTextNode("installer ce correctif critique")), l = ".", a = !0;
+                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. Veuillez ",
+                                k.style.color = linkColor, k.appendChild(document.createTextNode("installer ce correctif critique"));
+                                a = !0;
                                 break;
                         }
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(f));
                         e.getElementsByTagName("p")[0].appendChild(k);
+                        var k2= k.cloneNode(true);
+                        k2.href = "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi";
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(l));
+                        e.getElementsByTagName("p")[0].appendChild(document.createElement("br"));
+                        e.getElementsByTagName("p")[0].appendChild(document.createTextNode(k));
                         document.getElementById("BrowserBar").onclick = function () {
-                            window.open(k.href)
+                            window.open(k2.href)
                         }
                     }
                 },
