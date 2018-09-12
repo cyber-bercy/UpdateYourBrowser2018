@@ -29,10 +29,54 @@ Mise à jour en date du 21/08/2018 avec les versions des browsers
 			};
 	(function(u,v) { var s = document.createElement('script'); s.async = true; s.src = u;s.integrity = v;
 	var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
-		})('umb/umb2.js',"sha256-vpOTbt652r7UqB21i2OyT3ss7kwQQxPfj3dnFKTzvkE=");
+		})('umb/umb2.js',"sha256-5Y0zzt9SCMyo7hi7zXEs3ZOnS4AGeiXH/Kp3r1r83JI=");
 </script> 
 ```      
+Des options avancées sont disponibles :
+On peut redéfinir les différents messages et leurs liens :
+```javaScript
+		message{
+			textUpdate :{
+                                    textA : "Une mise à jour de ",
+                                    textB : "est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                        textLatest :{
+                                    textA : "Vous avez installé la dernière version disponible de ",
+                                    textB : " . ",
+                                    textC : "Plus d'informations sur votre navigateur",
+                                    browserName : "1"   
+                                },
+                        textWarning :{
+                                    textA : "Une mise à jour importante de sécurité de ",
+                                    textB : "  est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                         textUpdateOS :{
+                                    textA : "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "0"                                  
+                                },
+                         textAndroidDeprecated :{
+                                    textA : "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "1"
+                                },
+                         textInfo :{
+                                    link : "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi",
+                                    textA : "Ce message s'affiche dans le cadre de l'opération du Mois européen de la cybersécurité dont notre site est partenaire"
+```      
+le message affiché est, en fonction du cas, textA , nom du navigateur (si browserName est à 1), textB, puis le liens avec le textC.
+Retour à la ligne, puis affichage du message de textInfo avec son textA associé au lien (link).
 
+on peut aussi définir un paramètre d'offset du bandeau en cas de superposition  (0 par défaut):
+```javaScript
+	offset : 0px
+```  
 ### b - Télécharger [le fichier zip d'umb](release/umb.zip) et extraire le répertoire UMB avec les fichiers contenus (warning.png, umb.js,..) :
 
 Le répertoire /umb et les fichiers qu'il contient doivent être copiés dans le même répertoire que la page à servir.
