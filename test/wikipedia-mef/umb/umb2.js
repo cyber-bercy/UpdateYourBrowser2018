@@ -87,7 +87,41 @@ try {
                                 backgroundUpdateColor: "",
                                 linkColor: "#ED1C24",
                                 textColor: "black",
-                                textUpdateColor: "#00A651"
+                                textUpdateColor: "#00A651",
+                                textUpdate :{
+                                    textA : "Une mise à jour de ",
+                                    textB : "est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                                textLatest :{
+                                    textA : "Vous avez installé la dernière version disponible de ",
+                                    textB : " . ",
+                                    textC : "Plus d'informations sur votre navigateur",
+                                    browserName : "1"   
+                                },
+                                textWarning :{
+                                    textA : "Une mise à jour importante de sécurité de ",
+                                    textB : "  est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                                textUpdateOS :{
+                                    textA : "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "0"                                  
+                                },
+                                textAndroidDeprecated :{
+                                    textA : "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "1"
+                                },
+                                textInfo :{
+                                    link : "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi",
+                                    textA : "Ce message s'affiche dans le cadre de l'opération du Mois européen de la cybersécurité dont notre site est partenaire"
+                                }
                             },
                             display: true,
                             nonCritical: false,
@@ -342,6 +376,7 @@ try {
                     c = parseFloat(c.current);
                     a = parseFloat(UMB.getConfig().require[UMB.Detect.browser]);
                     d = parseFloat(UMB.getConfig().esr[UMB.Detect.browser]);
+                    if ( d===-1 ){d=c};
 
                     // check for not mobile :
                     if (b != "mobile") {
@@ -350,8 +385,8 @@ try {
                         if ((a2 == "WinXP") && (UMB.getConfig().xpMode===true)) {
                             return UMB.Detect.version >= c ? "latest" : "updateOs"
                         };
-                        //check for ESR version (elles ont une builddate) :
-                        if ((UMB.Detect.version == d) && (navigator.buildID)) {
+                        //check for ESR version (elles ont une builddate, risque de casse si firefox decide de supprimer la builddate) :
+                        if ((UMB.Detect.version >= d) && (navigator.buildID)) {
                             buildate = parseFloat(navigator.buildID);
                             buildlimite = parseFloat(UMB.getConfig().build[UMB.Detect.browser]);
                             //(on determine si la version ESR est à jour avec la date de référence)
@@ -392,13 +427,13 @@ try {
                     g({
                         display: "none",
                         position: "fixed",
-                        height: "1em",
+                        //height: "1em",
                         fontSize: "1em",
                         fontWeight: "bold",
-                        lineHeight: "1em",
+                        LineHeight: "1em",
                         fontFamily: "Arial, sans-serif",
                         color: textColor,
-                        padding: "10px 0",
+                        padding: "5px 0",
                         top: "0px",
                         left: "0px",
                         backgroundColor: backgroundColor,
@@ -466,45 +501,61 @@ try {
                         var e = document.getElementById("BrowserBar"),
                             k = document.createElement("a");
                         k.href = b.update_url;
-                        k.onclick = function () {
-                            return !1
+                        var foncBrowserBarOnclick = document.getElementById("BrowserBar").onclick;
+                        k.onclick = function (foncBrowserBarOnclick) {
+                            foncBrowserBarOnclick.stopPropagation()
                         };
                         k.style.color = "#2183d0";
                         k.style.fontWeight = "bold";
                         k.target = "_blank";
+                        var message;
                         var f = "",
-                            l = "";
+                            l = ".";
                         switch (d) {
                             case "latest":
+                                message= conf.message.textLatest
                                 g({ backgroundImage : "",
                                     backgroundColor : backgroundUpdateColor,
                                     color : textUpdateColor }
                                     ,e);
-                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", k.style.color = linkColor, k.appendChild(document.createTextNode("En savoir plus"));
                                 break;
                             case "update":
+                                message= conf.message.textUpdate
                                 g({ backgroundImage : ""},e);
-                                f = "Une mise à jour de (" + b.name + " " + b.current + ") est disponible. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")), l = ".";
                                 break;
                             case "warning":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")), l = ".", a = !0;
+                                message= conf.message.textWarning
+                                a = !0;
                                 break;
-                            case "updateOs":
-                                k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support"
-                                f = "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ", k.style.color = linkColor, k.appendChild(document.createTextNode("Plus d'informations"));
+                            case "updateOS":
+                                message= conf.message.textUpdateOS
+                                k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support",
+                                k.style.color = linkColor
                                 break;
                             case "androidDeprecated":
-                                f = "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ", k.style.color = linkColor, k.appendChild(document.createTextNode("En savoir plus")), l = ".";
-                                break;
-                            case "warning2":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. Veuillez ", k.style.color = linkColor, k.appendChild(document.createTextNode("installer ce correctif critique")), l = ".", a = !0;
+                                message= conf.message.textAndroidDeprecated;
                                 break;
                         }
+                        var browserName =""
+                        if (message.browserName) {browserName = b.name}
+                        f = message.textA + browserName + message.textB, 
+                        k.style.color = linkColor, 
+                        k.appendChild(document.createTextNode(message.textC));
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(f));
                         e.getElementsByTagName("p")[0].appendChild(k);
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(l));
+                        e.getElementsByTagName("p")[0].appendChild(document.createElement("br"));
+                        var k2 = document.createElement("a");
+                        k2.style.color = linkColor,
+                        k2.target = "_blank";
+                        k2.href = conf.message.textInfo.link;
+                        k2.appendChild(document.createTextNode(conf.message.textInfo.textA));
+                        k2.onclick = function (foncBrowserBarOnclick) {
+                            foncBrowserBarOnclick.stopPropagation()
+                        };
+                        e.getElementsByTagName("p")[0].appendChild(k2);
                         document.getElementById("BrowserBar").onclick = function () {
-                            window.open(k.href)
+                            window.open(k2.href)
                         }
                     }
                 },
