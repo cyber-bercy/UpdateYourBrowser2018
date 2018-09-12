@@ -88,8 +88,39 @@ try {
                                 linkColor: "#ED1C24",
                                 textColor: "black",
                                 textUpdateColor: "#00A651",
-                                textCaseUpdate :{
-
+                                textUpdate :{
+                                    textA : "Une mise à jour de ",
+                                    textB : "est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                                textLatest :{
+                                    textA : "Vous avez installé la dernière version disponible de ",
+                                    textB : " . ",
+                                    textC : "Plus d'informations sur votre navigateur",
+                                    browserName : "1"   
+                                },
+                                textWarning :{
+                                    textA : "Une mise à jour importante de sécurité de ",
+                                    textB : "  est disponible. ",
+                                    textC : "Veuillez mettre à jour votre navigateur",
+                                    browserName : "1"
+                                },
+                                textUpdateOS :{
+                                    textA : "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "0"                                  
+                                },
+                                textAndroidDeprecated :{
+                                    textA : "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ",
+                                    textB : "",
+                                    textC : "Plus d'informations",
+                                    browserName : "1"
+                                },
+                                textInfo :{
+                                    link : "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi",
+                                    textA : "Ce message s'affiche dans le cadre de l'opération du Mois européen de la cybersécurité dont notre site est partenaire"
                                 }
                             },
                             display: true,
@@ -345,6 +376,7 @@ try {
                     c = parseFloat(c.current);
                     a = parseFloat(UMB.getConfig().require[UMB.Detect.browser]);
                     d = parseFloat(UMB.getConfig().esr[UMB.Detect.browser]);
+                    if ( d===-1 ){d=c};
 
                     // check for not mobile :
                     if (b != "mobile") {
@@ -476,47 +508,39 @@ try {
                         k.style.color = "#2183d0";
                         k.style.fontWeight = "bold";
                         k.target = "_blank";
+                        var message;
                         var f = "",
                             l = ".";
                         switch (d) {
                             case "latest":
+                                message= conf.message.textLatest
                                 g({ backgroundImage : "",
                                     backgroundColor : backgroundUpdateColor,
                                     color : textUpdateColor }
                                     ,e);
-                                f = "Vous avez installé la dernière version disponible de " + b.name + " . ", 
-                                k.style.color = linkColor, 
-                                k.appendChild(document.createTextNode("En savoir plus"));
                                 break;
                             case "update":
+                                message= conf.message.textUpdate
                                 g({ backgroundImage : ""},e);
-                                f = "Une mise à jour de (" + b.name + " " + b.current + ") est disponible. ", 
-                                k.style.color = linkColor, 
-                                k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur"));
                                 break;
                             case "warning":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. ",
-                                k.style.color = linkColor,
-                                k.appendChild(document.createTextNode("Veuillez mettre à jour votre navigateur")),
+                                message= conf.message.textWarning
                                 a = !0;
                                 break;
-                            case "updateOs":
+                            case "updateOS":
+                                message= conf.message.textUpdateOS
                                 k.href = "https://www.microsoft.com/fr-fr/windowsforbusiness/end-of-xp-support",
-                                f = "Votre système d'exploitation ne dispose plus de mise à jour de sécurité, vos informations sont en dangers. ",
-                                k.style.color = linkColor, 
-                                k.appendChild(document.createTextNode("Plus d'informations"));
+                                k.style.color = linkColor
                                 break;
                             case "androidDeprecated":
-                                f = "Votre système d'exploitation Android ne dispose plus de mise à jour de sécurité. ", 
-                                k.style.color = linkColor, 
-                                k.appendChild(document.createTextNode("En savoir plus"));
-                                break;
-                            case "warning2":
-                                f = "Une mise à jour importante de sécurité de " + b.name + "  est disponible. Veuillez ",
-                                k.style.color = linkColor, k.appendChild(document.createTextNode("installer ce correctif critique"));
-                                a = !0;
+                                message= conf.message.textAndroidDeprecated;
                                 break;
                         }
+                        var browserName =""
+                        if (message.browserName) {browserName = b.name}
+                        f = message.textA + browserName + message.textB, 
+                        k.style.color = linkColor, 
+                        k.appendChild(document.createTextNode(message.textC));
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(f));
                         e.getElementsByTagName("p")[0].appendChild(k);
                         e.getElementsByTagName("p")[0].appendChild(document.createTextNode(l));
@@ -524,8 +548,8 @@ try {
                         var k2 = document.createElement("a");
                         k2.style.color = linkColor,
                         k2.target = "_blank";
-                        k2.href = "https://www.economie.gouv.fr/hfds/cybersecurite-et-politique-ministerielle-ssi";
-                        k2.appendChild(document.createTextNode("Ce message s'affiche dans le cadre de l'opération du Mois européen de la cybersécurité dont notre site est partenaire"));
+                        k2.href = conf.message.textInfo.link;
+                        k2.appendChild(document.createTextNode(conf.message.textInfo.textA));
                         k2.onclick = function (foncBrowserBarOnclick) {
                             foncBrowserBarOnclick.stopPropagation()
                         };
