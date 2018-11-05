@@ -96,8 +96,8 @@ configuration :
 				build: { firefox : "20180621121600"},
 				display : true,   
 				nonCritical: true,   
-				startdate: "2017-12",   
-				enddate: "2019-12",   
+				startDate: "2017-12",   
+				endDate: "2019-12",   
 				message:{     
 				backgroundColor : "red",
 				backgroundUpdateColor : "#00ff80",
